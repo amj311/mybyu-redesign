@@ -1,9 +1,11 @@
 <template>
   <b-card header-tag="header" class="shadow-sm bg-white">
     <template #header>
-      {{data.title}}
-      <BIconPencilFill />
-      <BIconTrashFill />
+      <div class="widget-header">
+        <span class="widget-title">{{data.title}}</span>
+        <BIconPencilFill />
+        <BIconTrashFill />
+      </div>
     </template>
     <div class="widget-content-wrapper">
       <slot></slot>
@@ -29,4 +31,10 @@ export default {
 </script>
 
 <style scoped>
+.widget-header {
+  display: flex;
+}
+.widget-title {
+  flex-grow: 1;
+}
 </style>
