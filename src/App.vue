@@ -1,16 +1,25 @@
 <template>
   <div id="app">
     <NavBar />
+    <b-button variant="primary">Primary</b-button>
+    <div class="home-wrapper">
+      <div class="home-panel"><Dashboard /></div>
+      <div class="home-panel"><QuickLinks /></div>
+    </div>
   </div>
 </template>
 
 <script>
-import NavBar from './components/NavBar.vue'
+import NavBar from './components/Nav/NavBar.vue'
+import Dashboard from './components/Dashboard/Dashboard.vue'
+import QuickLinks from './components/QuickLinks/QuickLinks.vue'
 
 export default {
   name: 'App',
   components: {
-    NavBar
+    NavBar,
+    Dashboard,
+    QuickLinks,
   }
 }
 </script>
@@ -30,8 +39,18 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #333;
-  margin-top: 60px;
 }
 
+.content-width {
+  max-width:var(--content-max-width);
+  margin: 0 auto;
+}
 
+h3 {
+  border-bottom: .1em solid;
+}
+
+.home-panel {
+  margin: 1em;
+}
 </style>
