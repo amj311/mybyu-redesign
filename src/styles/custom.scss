@@ -1,0 +1,41 @@
+:root {
+    --navy: #002E5D;
+    --royal: #0062B8;
+    --base: var(--navy);
+    --tint: #2E85FF;
+    --shade: var(--navy);
+    --accent: #D99511;
+    --accent-dark: #8C5C00;
+    --content-max-width: 80rem;
+    
+    --primary: var(--base);
+}
+
+$theme-colors: (
+    "primary": #0062B8,
+    // "secondary": #B87100,
+);
+  
+
+// Include Bootstrap and BootstrapVue SCSS files
+@import '~bootstrap/scss/bootstrap.scss';
+@import '~bootstrap-vue/src/index.scss';
+
+// General style overrides and custom classes
+body {
+  margin: 0;
+  font-size: 14px;
+}
+
+
+#app {
+font-family: Avenir, Helvetica, Arial, sans-serif;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+color: #333;
+}
+
+.content-width {
+max-width:var(--content-max-width);
+margin: 0 auto;
+}

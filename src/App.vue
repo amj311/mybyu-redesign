@@ -2,9 +2,9 @@
   <div id="app">
     <NavBar />
     <b-button variant="primary">Primary</b-button>
-    <div class="home-wrapper">
+    <div class="home-wrapper content-width">
       <div class="home-panel"><Dashboard /></div>
-      <div class="home-panel"><QuickLinks /></div>
+      <div class="home-panel quick-links"><QuickLinks /></div>
     </div>
   </div>
 </template>
@@ -25,32 +25,34 @@ export default {
 </script>
 
 <style>
-:root {
-  --base: #1164D9;
-  --tint: #2E85FF;
-  --shade: #14315A;
-  --accent: #D99511;
-  --accent-dark: #8C5C00;
-  --content-max-width: 80rem;
+.home-wrapper {
+  width: 100%;
+  display: flex;
 }
-
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #333;
-}
-
-.content-width {
-  max-width:var(--content-max-width);
-  margin: 0 auto;
-}
-
-h3 {
-  border-bottom: .1em solid;
-}
-
 .home-panel {
+  width: 100%;
   margin: 1em;
+}
+.home-panel.quick-links {
+  max-width: 15em;
+}
+
+.home-panel h5 {
+border-bottom: .1em solid;
+}
+
+@media screen and (max-width: 500px) { 
+  .home-wrapper {
+    width: 100%;
+    display: block;
+  }
+  .home-panel {
+    width: auto;
+    margin: 1em;
+  }
+  .home-panel.quick-links {
+    max-width: none;
+  }
+
 }
 </style>

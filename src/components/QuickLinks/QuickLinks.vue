@@ -1,25 +1,31 @@
 <template>
 <div>
-  <h3>QuickLinks</h3>
-  <b-form-input v-model="filterQuery" placeholder="Filter..."></b-form-input>
+  <h5>QuickLinks</h5>
+  <b-form-input class="filter-input" v-model="filterQuery" placeholder="Filter..."></b-form-input>
   <div v-for="group in filteredGroups" :key="group.name">
-    <details v-if="group.links.length > 0">
-      <summary>{{group.name}} ({{group.links.length}})</summary>
+    <input type="checkbox" hidden :id="'open-'+group.name" :checked="filterQuery" />
+    <div class="link-group" v-if="group.links.length > 0">
+      <label :for="'open-'+group.name">
+        <BIconChevronDown down /><BIconChevronRight right />
+        {{group.name}} ({{group.links.length}})</label>
       <ul>
         <li v-for="link in group.links" :key="link.url">
           <a :href="link.url" :title="link.title" target="blank">{{link.title}}</a>
         </li>
       </ul>
-    </details>
+    </div>
   </div>
 </div>
 </template>
 
 <script>
+import { BIconChevronDown, BIconChevronRight } from 'bootstrap-vue'
 
 export default {
   name: 'QuickLinks',
   components: {
+    BIconChevronDown,
+    BIconChevronRight
   },
   props: {
   },
@@ -74,5 +80,23 @@ export default {
 </script>
 
 <style scoped>
+.filter-input {
+  margin: 1em 0;
+}
 
+.link-group ul {
+  display: none;
+}
+.link-group label {
+  cursor: pointer;
+}
+input:checked + .link-group ul {
+  display: block;
+}
+input:not(:checked) + .link-group label [down] {
+  display: none;
+}
+input:checked + .link-group label [right] {
+  display: none;
+}
 </style>

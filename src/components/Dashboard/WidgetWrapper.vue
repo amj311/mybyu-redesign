@@ -1,7 +1,7 @@
 <template>
-  <b-card header-tag="header" class="shadow-sm bg-white">
+  <b-card header-tag="header" class="shadow-sm bg-white widget-container">
     <template #header>
-      <div class="widget-header">
+      <div class="widget-header" draggable>
         <span class="widget-title">{{data.title}}</span>
         <BIconPencilFill />
         <BIconTrashFill />
@@ -33,8 +33,25 @@ export default {
 <style scoped>
 .widget-header {
   display: flex;
+  cursor: grab;
+}
+.widget-header:active {
+  display: flex;
+  cursor: grabbing;
 }
 .widget-title {
   flex-grow: 1;
+}
+
+
+.widget-container .card-body {
+  display:flex;
+}
+
+.widget-content-wrapper {
+  font-size: .9em;
+  flex: 1 1 auto;
+  overflow: auto;
+  position: relative;
 }
 </style>

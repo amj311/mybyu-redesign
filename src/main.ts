@@ -5,6 +5,8 @@ import './plugins/bootstrap-vue'
 import App from './App.vue'
 import store from './store'
 import { BootstrapVueIcons } from 'bootstrap-vue'
+import './styles/custom.scss'
+
 
 Vue.use(BootstrapVueIcons)
 
